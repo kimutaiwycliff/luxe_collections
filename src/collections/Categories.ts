@@ -1,11 +1,12 @@
 import type { CollectionConfig } from 'payload'
 
-import { anyone } from '../access/anyone'
-import { authenticated } from '../access/authenticated'
+import { anyone } from './Users/access/anyone'
+import { authenticated } from './Users/access/authenticated'
 import { slugField } from '@/fields/slug'
 
 export const Categories: CollectionConfig = {
   slug: 'categories',
+  folders: true,
   access: {
     create: authenticated,
     delete: authenticated,
@@ -22,5 +23,14 @@ export const Categories: CollectionConfig = {
       required: true,
     },
     ...slugField(),
+    {
+      name: 'parent',
+      type: 'relationship',
+      relationTo: 'categories',
+      hasMany: false,
+      admin: {
+        position: 'sidebar',
+      },
+    },
   ],
 }
