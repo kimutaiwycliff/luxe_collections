@@ -21,6 +21,7 @@ import {
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
 import { DataTableBlock } from '@/blocks/DataTable/config'
+import { CategoryShowcase } from '@/blocks/CategoryShowCase/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -76,7 +77,15 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, DataTableBlock],
+              blocks: [
+                CallToAction,
+                Content,
+                MediaBlock,
+                Archive,
+                FormBlock,
+                DataTableBlock,
+                CategoryShowcase,
+              ],
               required: true,
               admin: {
                 initCollapsed: true,

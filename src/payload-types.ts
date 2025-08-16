@@ -234,7 +234,15 @@ export interface Page {
     autoplay?: boolean | null;
     autoplayDelay?: number | null;
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | DataTableBlock)[];
+  layout: (
+    | CallToActionBlock
+    | ContentBlock
+    | MediaBlock
+    | ArchiveBlock
+    | FormBlock
+    | DataTableBlock
+    | CategoryShowcaseBlock
+  )[];
   meta?: {
     title?: string | null;
     /**
@@ -839,6 +847,26 @@ export interface DataTableBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CategoryShowcaseBlock".
+ */
+export interface CategoryShowcaseBlock {
+  title: string;
+  subtitle?: string | null;
+  categories?:
+    | {
+        category: number | Category;
+        customImage?: (number | null) | Media;
+        customTitle?: string | null;
+        featured?: boolean | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'categoryShowcase';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1161,6 +1189,7 @@ export interface PagesSelect<T extends boolean = true> {
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
         dataTable?: T | DataTableBlockSelect<T>;
+        categoryShowcase?: T | CategoryShowcaseBlockSelect<T>;
       };
   meta?:
     | T
@@ -1281,6 +1310,25 @@ export interface DataTableBlockSelect<T extends boolean = true> {
         id?: T;
       };
   defaultPageSize?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CategoryShowcaseBlock_select".
+ */
+export interface CategoryShowcaseBlockSelect<T extends boolean = true> {
+  title?: T;
+  subtitle?: T;
+  categories?:
+    | T
+    | {
+        category?: T;
+        customImage?: T;
+        customTitle?: T;
+        featured?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
