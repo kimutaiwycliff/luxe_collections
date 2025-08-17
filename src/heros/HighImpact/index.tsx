@@ -88,7 +88,7 @@ export const HighImpactHero: React.FC<Page['hero']> = ({
                     )}
                     <div
                       className={cn(
-                        'absolute inset-0 bg-black/40 flex items-center justify-center z-10',
+                        'absolute inset-0 bg-black/10 flex items-center justify-center z-10',
                         getTextAlignment(slide?.textPosition || 'center'),
                       )}
                     >

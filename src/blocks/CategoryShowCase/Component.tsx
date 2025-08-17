@@ -20,7 +20,7 @@ export const CategoryShowCaseBlock: React.FC<CategoryShowCaseBlockProps> = ({
   const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }))
 
   return (
-      <section className="py-16 sm:py-24">
+      <section className="py-12 sm:py-20">
         <div className="container max-w-screen-2xl">
           <h2 className="text-3xl md:text-4xl font-headline font-bold text-center mb-12">
             {title}
